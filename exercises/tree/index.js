@@ -10,7 +10,21 @@
 // on the tree class.  Each method should accept a
 // function that gets called with each element in the tree
 
-class Node {}
+class Node {
+  constructor(data, children = []) {
+    this.data = data;
+    this.children = children;
+  }
+
+  add(node) {
+    return this.children.push(new Node(node));
+  }
+
+  remove(node) {
+    const index = this.children.findIndex(el => el.data === node);
+    return this.children.splice(index, 1);
+  }
+}
 
 class Tree {}
 
